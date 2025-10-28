@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-10-23T10:27:09-0500",
-    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.44.0.v20251001-1143, environment: Java 21.0.8 (Eclipse Adoptium)"
+    date = "2025-10-28T14:51:32-0500",
+    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 17.0.12 (Oracle Corporation)"
 )
 @Component
 public class CitaMapperImpl implements CitaMapper {
@@ -80,18 +80,32 @@ public class CitaMapperImpl implements CitaMapper {
     }
 
     private Long citaPacienteIdPaciente(Cita cita) {
+        if ( cita == null ) {
+            return null;
+        }
         Paciente paciente = cita.getPaciente();
         if ( paciente == null ) {
             return null;
         }
-        return paciente.getIdPaciente();
+        Long idPaciente = paciente.getIdPaciente();
+        if ( idPaciente == null ) {
+            return null;
+        }
+        return idPaciente;
     }
 
     private Long citaDoctorIdDoctor(Cita cita) {
+        if ( cita == null ) {
+            return null;
+        }
         Doctor doctor = cita.getDoctor();
         if ( doctor == null ) {
             return null;
         }
-        return doctor.getIdDoctor();
+        Long idDoctor = doctor.getIdDoctor();
+        if ( idDoctor == null ) {
+            return null;
+        }
+        return idDoctor;
     }
 }
